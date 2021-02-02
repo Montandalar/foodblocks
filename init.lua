@@ -47,16 +47,19 @@ end
 
 -- Redo + Undo
 if ffork >= 1 then
-	regfoodblock("corn", "Corn", "farming:corn")
 	regfoodblock("cabbage", "Cabbage", "farming:cabbage")
+	regfoodblock("corn", "Corn", "farming:corn")
 	regfoodblock("onion", "Onion", "farming:onion")
+	regfoodblock("pineapple", "Pineapple", "farming:pineapple")
+	regfoodblock("tomato", "Tomato", "farming:tomato")
 end
 
 -- Undo only
 -- artichoke, barley, oregano, parsley, tigernuts and toadskin melons (v20201213)
 
--- Stuff from ethereal: orange, lemon, olive, banana
+-- Stuff from ethereal: orange, lemon, olive, banana, strawberry
 if minetest.get_modpath("ethereal") then
 	regfoodblock("orange", "Orange", "ethereal:orange")
 	regfoodblock("lemon", "Lemon", "ethereal:lemon")
+	regfoodblock("strawberry", "Strawberry", "ethereal:strawberry")
 end
