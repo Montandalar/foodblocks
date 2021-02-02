@@ -1,0 +1,11 @@
+# textdomain: foodblocks
+@1 Block=@1block
+# default
+Apple=Apfel
+# farming_redo
+Cabbage=Kohl
+Corn=Mais
+Onion=Zwiebel
+# ethereal
+Lemon=Zitrone
+Orange=Orange

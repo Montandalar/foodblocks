@@ -1,8 +1,10 @@
+local S = minetest.get_translator("foodblocks")
+
 local function regfoodblock(name, desc, ingredient)
 	local tile_sides = name..'_cube.png^[sheet:1x3:0,1'
 	local node_name = "foodblocks:"..name.."_cube"
 	minetest.register_node(node_name, {
-		description = string.format("%s Cube", desc),
+		description = S("@1 Block", S(desc)),
 		drop = string.format('"%s" 9', ingredient),
 		groups = {choppy = 3, oddly_breakable_by_hand = 2},
 		drawtype = 'normal',
