@@ -27,6 +27,28 @@ local function regfoodblock(name, desc, ingredient)
 	})
 end
 
-regfoodblock("corn", "Corn", "farming:corn")
+-- Default
 regfoodblock("apple", "Apple", "default:apple")
-regfoodblock("cabbage", "Cabbage", "farming:cabbage")
+
+-- Nothing from minetest_game farming (wheat & cotton)
+
+-- FORK DETECTION
+-- farming_undo is a fork of redo with some more stuff
+local ffork = 0
+if farming.mod then
+	if farming.mod == "redo" then
+		ffork = 1
+	elseif farming.mod == "undo" then
+		ffork = 2
+	end
+end
+
+-- Redo + Undo
+if ffork >= 1 then
+	regfoodblock("corn", "Corn", "farming:corn")
+	regfoodblock("cabbage", "Cabbage", "farming:cabbage")
+	regfoodblock("onion", "Onion", "farming:onion")
+end
+
+-- Undo only
+-- artichoke, barley, oregano, parsley, tigernuts and toadskin melons (v20201213)
