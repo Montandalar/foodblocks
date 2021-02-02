@@ -52,3 +52,9 @@ end
 
 -- Undo only
 -- artichoke, barley, oregano, parsley, tigernuts and toadskin melons (v20201213)
+
+-- Stuff from ethereal: orange, lemon, olive, banana
+if minetest.get_modpath("ethereal") then
+	regfoodblock("orange", "Orange", "ethereal:orange")
+	regfoodblock("lemon", "Lemon", "ethereal:lemon")
+end
