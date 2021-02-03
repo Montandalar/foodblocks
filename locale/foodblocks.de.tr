@@ -5,8 +5,11 @@ Apple=Apfel
 # farming_redo
 Beetroot=Rote Bete
 Cabbage=Kohl
+Carrot=Karotte
 Corn=Mais
 Cucumber=Gurke
+Garlic=Knoblauch
+Lettuce=Kopfsalat
 Onion=Zwiebel
 Green Capsicum=Grüner Paprika
 Yellouw Capsicum=Gelber Paprika
@@ -14,6 +17,8 @@ Red Capsicum=Rote Paprika
 Pineapple=Ananas
 Potato=Kartoffel
 Tomato=Tomate
+# farming_undo
+Artichoke=Artischocke
 # ethereal
 Lemon=Zitrone
 Orange=Orange

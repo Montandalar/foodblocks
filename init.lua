@@ -79,11 +79,11 @@ if ffork >= 1 then
 	--TODO: Blackberry
 	--TODO: Blueberry
 	regfoodblock("cabbage", "Cabbage", "farming:cabbage")
-	--TODO: Carrot
+	regfoodblock("carrot", "Carrot", "farming:carrot")
 	regfoodblock("corn", "Corn", "farming:corn")
 	regfoodblock("cucumber", "Cucumber", "farming:cucumber")
-	--TODO: Garlic
-	--TODO: Lettuce
+	regfoodblock("garlic", "Garlic", "farming:garlic")
+	regfoodblock("lettuce", "Lettuce", "farming:lettuce")
 	regfoodblock("onion", "Onion", "farming:onion")
 	reg_capsicum("g", "Green", "farming:pepper", "#87a644")
 	reg_capsicum("y", "Yellouw", "farming:pepper_y", "#ffdc17")
@@ -97,11 +97,12 @@ end
 -- Undo only
 -- artichoke, barley, oregano, parsley, tigernuts and toadskin melons (v20201213)
 if ffork >= 2 then
-	--TODO: artichoke
+	regfoodblock("artichoke", "Artichoke", "farming:artichoke")
 end
 
 -- Stuff from ethereal: orange, lemon, olive, banana, strawberry
 if minetest.get_modpath("ethereal") then
+	--TODO: Banana
 	regfoodblock("orange", "Orange", "ethereal:orange")
 	regfoodblock("lemon", "Lemon", "ethereal:lemon")
 	regfoodblock("strawberry", "Strawberry", "ethereal:strawberry")
