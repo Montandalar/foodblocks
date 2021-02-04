@@ -44,12 +44,6 @@ local function regfoodblock(name, desc, ingredient, customtiles)
 	})
 end
 
--- Default
-regfoodblock("apple", "Apple", "default:apple")
-regfoodblock("blueberry", "Blueberry", "default:blueberries")
-
--- Nothing from minetest_game farming (wheat & cotton)
-
 -- FORK DETECTION
 -- farming_undo is a fork of redo with some more stuff
 local ffork = 0
@@ -59,6 +53,51 @@ if farming.mod then
 	elseif farming.mod == "undo" then
 		ffork = 2
 	end
+end
+
+-- Default
+regfoodblock("apple", "Apple", "default:apple")
+
+-- Blueberries
+bbpol = minetest.settings:get("foodblocks_blueberry_policy")
+if bbpol == nil then bbpol = "defaultonly" end
+local bbtiles = {
+	"blueberry_cube.png^[sheet:1x3:0,0",
+	"blueberry_cube.png^[sheet:1x3:0,2",
+	"blueberry_cube.png^[sheet:1x3:0,1",
+	"blueberry_cube.png^[sheet:1x3:0,1",
+	"blueberry_cube.png^[sheet:1x3:0,1",
+	"blueberry_cube.png^[sheet:1x3:0,1",
+}
+if bbpol == "defaultonly" then
+	regfoodblock("blueberry_default", "Blueberry", "default:blueberries", bbtiles)
+	minetest.register_alias("foodblocks:blueberry_farming_cube", "foodblocks:blueberry_default_cube")
+	if ffork >= 1 then
+		minetest.register_craft({
+			output = "foodblocks:blueberry_default_cube",
+			recipe = {
+				{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
+				{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
+				{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
+			}
+		})
+	end
+elseif bbpol == "farmingonly" and ffork >= 1 then
+	regfoodblock("blueberry_farming", "Blueberry", "farming:blueberries", bbtiles)
+	minetest.register_alias("foodblocks:blueberry_default_cube", "foodblocks:blueberry_farming_cube")
+	minetest.register_craft({
+		output = "foodblocks:blueberry_farming_cube",
+		recipe = {
+			{"default:blueberries", "default:blueberries", "default:blueberries"},
+			{"default:blueberries", "default:blueberries", "default:blueberries"},
+			{"default:blueberries", "default:blueberries", "default:blueberries"},
+		}
+	})
+elseif bbpol == "both" and ffork >= 1 then
+	regfoodblock("blueberry_default", "Blueberry", "default:blueberries", bbtiles)
+	regfoodblock("blueberry_farming", "Blueberry", "farming:blueberries", bbtiles)
+else
+	error("foodblocks: Invalid blueberry policy. You cannot have the 'both' or 'farmingonly' policies if you do not have the farming_undo or _redo mods")
 end
 
 local function reg_capsicum(colourname, desc, ingredient, multi_color)
@@ -78,17 +117,6 @@ end
 if ffork >= 1 then
 	regfoodblock("beetroot", "Beetroot", "farming:beetroot")
 	regfoodblock("blackberry", "Blackberry", "farming:blackberry")
-	regfoodblock("blueberry", "Blueberry", "farming:blueberries")
-	-- Problem: Should there be 2 or 1 kind of blueberry cube, and if one then 
-	-- what/which kind(s) of blueberries should it revert to?
-	minetest.register_craft({
-		output = "foodblocks:blueberry_cube",
-		recipe = {
-			{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
-			{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
-			{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
-		}
-	})
 	regfoodblock("cabbage", "Cabbage", "farming:cabbage")
 	regfoodblock("carrot", "Carrot", "farming:carrot")
 	regfoodblock("chili", "Chili", "farming:chili_pepper")
@@ -119,3 +147,8 @@ if minetest.get_modpath("ethereal") then
 	regfoodblock("lemon", "Lemon", "ethereal:lemon")
 	regfoodblock("strawberry", "Strawberry", "ethereal:strawberry")
 end
+
+-- External API
+foodblocks = {
+	regfoodblock = regfoodblock,
+}
