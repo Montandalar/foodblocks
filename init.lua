@@ -46,6 +46,7 @@ end
 
 -- Default
 regfoodblock("apple", "Apple", "default:apple")
+regfoodblock("blueberry", "Blueberry", "default:blueberries")
 
 -- Nothing from minetest_game farming (wheat & cotton)
 
@@ -76,10 +77,21 @@ end
 -- Redo + Undo
 if ffork >= 1 then
 	regfoodblock("beetroot", "Beetroot", "farming:beetroot")
-	--TODO: Blackberry
-	--TODO: Blueberry
+	regfoodblock("blackberry", "Blackberry", "farming:blackberry")
+	regfoodblock("blueberry", "Blueberry", "farming:blueberries")
+	-- Problem: Should there be 2 or 1 kind of blueberry cube, and if one then 
+	-- what/which kind(s) of blueberries should it revert to?
+	minetest.register_craft({
+		output = "foodblocks:blueberry_cube",
+		recipe = {
+			{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
+			{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
+			{"farming:blueberries", "farming:blueberries", "farming:blueberries"},
+		}
+	})
 	regfoodblock("cabbage", "Cabbage", "farming:cabbage")
 	regfoodblock("carrot", "Carrot", "farming:carrot")
+	regfoodblock("chili", "Chili", "farming:chili_pepper")
 	regfoodblock("corn", "Corn", "farming:corn")
 	regfoodblock("cucumber", "Cucumber", "farming:cucumber")
 	regfoodblock("garlic", "Garlic", "farming:garlic")
@@ -90,7 +102,7 @@ if ffork >= 1 then
 	reg_capsicum("r", "Red", "farming:pepper_r", "#f83f3f")
 	regfoodblock("pineapple", "Pineapple", "farming:pineapple")
 	regfoodblock("potato", "Potato", "farming:potato", {"potato_cube.png"})
-	--TODO: Raspberry
+	regfoodblock("raspberry", "Raspberry", "farming:raspberries")
 	regfoodblock("tomato", "Tomato", "farming:tomato")
 end
 
@@ -102,7 +114,7 @@ end
 
 -- Stuff from ethereal: orange, lemon, olive, banana, strawberry
 if minetest.get_modpath("ethereal") then
-	--TODO: Banana
+	regfoodblock("banana", "Banana", "ethereal:banana")
 	regfoodblock("orange", "Orange", "ethereal:orange")
 	regfoodblock("lemon", "Lemon", "ethereal:lemon")
 	regfoodblock("strawberry", "Strawberry", "ethereal:strawberry")
