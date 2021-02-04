@@ -3,23 +3,27 @@
 # default
 Apple=Apfel
 # farming_redo
-Beetroot=Rote Bete
+Blackberry=Brombeer
+Blueberry=Blaubeer
+Beetroot=Rote Beete
 Cabbage=Kohl
-Carrot=Karotte
+Carrot=Möhre
 Corn=Mais
-Cucumber=Gurke
+Cucumber=Gurken
 Garlic=Knoblauch
+Green Capsicum=Grüner Paprika
 Lettuce=Kopfsalat
 Onion=Zwiebel
-Green Capsicum=Grüner Paprika
-Yellouw Capsicum=Gelber Paprika
-Red Capsicum=Rote Paprika
-Pineapple=Ananas
 Potato=Kartoffel
-Tomato=Tomate
+Pineapple=Ananas
+Raspberry=Himbeer
+Red Capsicum=Rote Paprika
+Tomato=Tomaten
+Yellouw Capsicum=Gelber Paprika
 # farming_undo
-Artichoke=Artischocke
+Artichoke=Artischocken
 # ethereal
-Lemon=Zitrone
+Banana=Bananen
+Lemon=Zitronen
 Orange=Orange
 Strawberry=Erdbeer
