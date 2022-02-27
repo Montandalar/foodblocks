@@ -2,7 +2,10 @@
 
 ![A screenshot of all the food blocks in the mod lined up in a row with their constituent plants in front of them.](screenshot.jpg)
 
-This mod adds large blocks for various types of food growable with the farming, farming\_redo & farming\_undo, and ethereal mods for minetest.
+This mod adds large blocks for various types of food from the farming,
+farming\_redo & farming\_undo, and ethereal mods for Minetest. They are crafted
+out of 9 of the original food item and each one comes with a custom texture like
+a giant cube version of that block.
 
 Q: Isn't this a bit silly? What should I do with these blocks?
 
@@ -22,7 +25,19 @@ All of these blocks are crafting by filling the 3x3 crafting grid with the appro
 
 ## Configuration
 
-Since blueberries were introduced to minetest_game, but already existed in farming, this mod lets you decide what you want the blueberry blocks to drop: default blueberries, wild blueberries (from farming) or the type they were crafted from. See settingstypes.txt and the in-game configuration menu.
+You can configure whether foodblocks will drop themselves directly, or 9 of
+the item that they were crafted out of. The default is to drop 9 of the item,
+similarly to melons or pumpkins in Mineclone. Regardless of the setting, the
+foodblocks will always drop themselves directly if the game is in creative mode.
+This applies to global creative mode only, not for players with the `creative`
+privilege.
+
+Since blueberries were introduced to Minetest Game, but already existed in
+farming, this mod lets you decide what you want the blueberry blocks to drop:
+default blueberries, wild blueberries (from farming) or the type they were
+crafted from.
+
+See settingstypes.txt and the in-game configuration menu for more information.
 
 ## API
 

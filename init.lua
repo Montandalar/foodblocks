@@ -1,5 +1,8 @@
 local S = minetest.get_translator("foodblocks")
 
+local drop_self = minetest.settings:get("foodblocks_drop_selves", false)
+local creative_mode = minetest.is_creative_enabled()
+
 --[[ regfoodblock
 Register a whole cube food block.
 By default it will have have a 1 wide x 3 high texture sheet.
@@ -12,6 +15,7 @@ In vertical order: top, then sides, then bottom.
 local function regfoodblock(name, desc, ingredient, customtiles)
 	local tile_sides = name..'_cube.png^[sheet:1x3:0,1'
 	local node_name = "foodblocks:"..name.."_cube"
+
 	local tiles
 	if customtiles then
 		tiles = customtiles
@@ -25,9 +29,17 @@ local function regfoodblock(name, desc, ingredient, customtiles)
 			tile_sides,
 		}
 	end
+
+	local drop
+	if drop_self or creative_mode then
+		drop = node_name
+	else
+		drop = string.format('"%s" 9', ingredient)
+	end
+
 	minetest.register_node(node_name, {
 		description = S("@1 Block", S(desc)),
-		drop = string.format('"%s" 9', ingredient),
+		drop = drop,
 		groups = {choppy = 3, oddly_breakable_by_hand = 2},
 		drawtype = 'normal',
 		paramtype2 = "facedir",
@@ -41,6 +53,12 @@ local function regfoodblock(name, desc, ingredient, customtiles)
 			{ingredient, ingredient, ingredient},
 			{ingredient, ingredient, ingredient},
 		}
+	})
+
+	minetest.register_craft({
+		output = string.format('"%s" 9', ingredient),
+		type = "shapeless",
+		recipe = {node_name}
 	})
 end
 
