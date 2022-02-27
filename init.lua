@@ -1,7 +1,7 @@
 local S = minetest.get_translator("foodblocks")
 
-local drop_self = minetest.settings:get("foodblocks_drop_selves", false)
-local creative_mode = minetest.is_creative_enabled()
+local drop_self = minetest.settings:get_bool("foodblocks_drop_selves", false)
+local creative_mode = minetest.is_creative_enabled() or false
 
 --[[ regfoodblock
 Register a whole cube food block.
@@ -33,16 +33,17 @@ local function regfoodblock(name, desc, ingredient, customtiles, customdef)
 	end
 
 	local drop
-    -- This wouldn't work when written as (drop_self or creative_mode). I don't
-    -- know why. If you're reading this, send help!
-	if (drop_self == true or creative_mode == true) then
+	-- This wouldn't work when written as (drop_self or creative_mode).
+	-- The reason was I wasn't checking for and subtiting false for nils 
+	-- when assigning above!
+	if drop_self or creative_mode then
 		drop = node_name
 	else
 		drop = string.format('"%s" 9', ingredient)
 	end
-    minetest.log("warning", string.format("name = %s, drop = %s", name, drop))
+	minetest.log("warning", string.format("name = %s, drop = %s", name, drop))
 
-    local node_def = {
+	local node_def = {
 		description = S("@1 Block", S(desc)),
 		drop = drop,
 		drawtype = 'normal',
@@ -50,14 +51,14 @@ local function regfoodblock(name, desc, ingredient, customtiles, customdef)
 		paramtype2 = "facedir",
 		sounds = _foodblocks.wood_sounds,
 		tiles = tiles,
-        _mcl_hardness = 1,
+		_mcl_hardness = 1,
 	}
 
-    if customdef ~= nil and type(customdef) == "table" then
-        for k,v in pairs(customdef) do
-            node_def[k] = v
-        end
-    end
+	if customdef ~= nil and type(customdef) == "table" then
+		for k,v in pairs(customdef) do
+			node_def[k] = v
+		end
+	end
 
 	minetest.register_node(node_name, node_def)
 	
@@ -80,6 +81,7 @@ end
 -- Internal API
 _foodblocks = {
 	wood_sounds = {},
+	node_groups = {},
 }
 
 -- External API

@@ -1,9 +1,11 @@
 local regfoodblock = foodblocks.regfoodblock
 
 if minetest.get_modpath("default") then
-    _foodblocks.wood_sounds = default.node_sound_wood_defaults()
-    _foodblocks.node_groups = {choppy = 3, oddly_breakable_by_hand = 2},
+	_foodblocks.wood_sounds = default.node_sound_wood_defaults()
+	_foodblocks.node_groups = {choppy = 3, oddly_breakable_by_hand = 2}
 end
+
+local extradef = { groups = {choppy = 3, oddly_breakable_by_hand = 2}}
 
 local ffork = 0
 if farming.mod then
