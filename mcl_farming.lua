@@ -20,3 +20,5 @@ regfoodblock("beetroot", "Beetroot", "mcl_farming:beetroot_item", nil,
 regfoodblock("carrot", "Carrot", "mcl_farming:carrot_item", nil, extra_node_def)
 regfoodblock("potato", "Potato", "mcl_farming:potato_item", {"potato_cube.png"},
 	extra_node_def)
+regfoodblock("potato_green", "Poison Potato", "mcl_farming:potato_item_poison",
+	{"potato_cube_green.png"})

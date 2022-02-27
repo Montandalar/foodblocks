@@ -104,5 +104,5 @@ else
 	error([[
 No compatible farming mod found! Please install one of the compatible mods:
 Farming from Minetest Game, farming_redo by Tenplus1, farming_undo by Felfa or
-mcl_farming from Mineclone2e2.]])
+mcl_farming from Mineclone2.]])
 end
