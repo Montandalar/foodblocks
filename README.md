@@ -8,9 +8,20 @@ mcl\_farming in Mineclone2. They are crafted out of 9 of the original food item
 and each one comes with a custom texture like a giant cube version of that
 block.
 
+## FAQ
+
 Q: Isn't this a bit silly? What should I do with these blocks?
 
 A: Yes, very silly. You could use them to build a house if you really wanted.
+
+Q: Does this mean plants will now grow into blocks?
+
+A: No, you have to craft the foodblocks out of plants you have already
+harvested.
+
+Q: What do the foodblocks drop?
+
+A: 9 items by default, but see the section on configuration.
 
 ## Installation
 

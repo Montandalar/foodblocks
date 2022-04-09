@@ -24,6 +24,8 @@ local gold_apple_textures = {
 	'(apple_cube.png^[sheet:1x3:0,1^[colorize:yellow:90)',
 },
 
+-- mcl_core without mcl_farming is a bridge we can cross if anybody actually
+-- ever comes to it. But vice versa is not possible.
 regfoodblock("apple", "Apple", "mcl_core:apple", nil, extra_node_def)
 regfoodblock("apple_gold", "Golden Apple", "mcl_core:apple_gold", 
 	gold_apple_textures, extra_node_def)
