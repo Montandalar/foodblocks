@@ -1,7 +1,7 @@
 local S = minetest.get_translator("foodblocks")
 
 local drop_self = minetest.settings:get_bool("foodblocks_drop_selves", false)
-local creative_mode = minetest.is_creative_enabled() or false
+local creative_mode = minetest.is_creative_enabled("") or false
 
 --[[ regfoodblock
 Register a whole cube food block.
