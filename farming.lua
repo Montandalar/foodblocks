@@ -1,11 +1,9 @@
 local regfoodblock = foodblocks.regfoodblock
 
 if minetest.get_modpath("default") then
-	_foodblocks.wood_sounds = default.node_sound_wood_defaults()
-	_foodblocks.node_groups = {choppy = 3, oddly_breakable_by_hand = 2}
+    foodblocks.set_wood_sounds(default.node_sound_wood_defaults())
+	foodblocks.set_node_groups({choppy = 3, oddly_breakable_by_hand = 2})
 end
-
-local extradef = { groups = {choppy = 3, oddly_breakable_by_hand = 2}}
 
 -- FORK DETECTION
 -- farming_undo is a fork of redo with some more stuff

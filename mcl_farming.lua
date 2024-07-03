@@ -3,17 +3,15 @@ local regfoodblock = foodblocks.regfoodblock
 local melondef = minetest.registered_nodes["mcl_farming:melon"]
 
 if minetest.get_modpath("mcl_sounds") then
-	_foodblocks.wood_sounds = mcl_sounds.node_sound_wood_defaults()
+	foodblocks.set_wood_sounds(mcl_sounds.node_sound_wood_defaults())
 end
-_foodblocks.nodegroups = melondef.groups
-
+foodblocks.set_node_groups(melondef.groups)
 
 local extra_node_def = {
 	_mcl_blast_resistance = melondef._mcl_blast_resistance,
 	_mcl_hardness = melondef._mcl_hardness,
 	_mcl_silk_touch_drop = true,
 }
-_foodblocks.node_groups = minetest.registered_nodes["mcl_farming:melon"].groups
 
 local gold_apple_textures = {
 	'(apple_cube.png^[sheet:1x3:0,0^[colorize:yellow:90^apple_top_overlay.png)', -- top
