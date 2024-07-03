@@ -7,6 +7,8 @@ end
 
 local extradef = { groups = {choppy = 3, oddly_breakable_by_hand = 2}}
 
+-- FORK DETECTION
+-- farming_undo is a fork of redo with some more stuff
 local ffork = 0
 if farming.mod then
 	if farming.mod == "redo" then

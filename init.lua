@@ -34,7 +34,7 @@ local function regfoodblock(name, desc, ingredient, customtiles, customdef)
 
 	local drop
 	-- This wouldn't work when written as (drop_self or creative_mode).
-	-- The reason was I wasn't checking for and subtiting false for nils 
+	-- The reason was I wasn't checking for and substituting false for nils 
 	-- when assigning above!
 	if drop_self or creative_mode then
 		drop = node_name
@@ -88,14 +88,11 @@ _foodblocks = {
 foodblocks = {
 	regfoodblock = regfoodblock,
 }
--- FORK DETECTION
--- farming_undo is a fork of redo with some more stuff
 
 local modpath = minetest.get_modpath("foodblocks")
 
 if minetest.get_modpath("farming") 
 	and minetest.global_exists("farming")
-	and farming.mod
 then
 	dofile(modpath.."/farming.lua")
 elseif minetest.get_modpath("mcl_farming") then
