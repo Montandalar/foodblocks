@@ -86,13 +86,18 @@ if ffork >= 1 then
 	regfoodblock("garlic", "Garlic", "farming:garlic")
 	regfoodblock("lettuce", "Lettuce", "farming:lettuce")
 	regfoodblock("onion", "Onion", "farming:onion")
-	reg_capsicum("g", "Green", "farming:pepper", "#87a644")
-	reg_capsicum("y", "Yellouw", "farming:pepper_y", "#ffdc17")
-	reg_capsicum("r", "Red", "farming:pepper_r", "#f83f3f")
 	regfoodblock("pineapple", "Pineapple", "farming:pineapple")
 	regfoodblock("potato", "Potato", "farming:potato", {"potato_cube.png"})
 	regfoodblock("raspberry", "Raspberry", "farming:raspberries")
 	regfoodblock("tomato", "Tomato", "farming:tomato")
+	reg_capsicum("g", "Green", "farming:pepper", "#87a644")
+    if ffork >= 2 then --undo, which has a different item name to redo
+        reg_capsicum("y", "Yellouw", "farming:pepper_y", "#ffdc17")
+        reg_capsicum("r", "Red", "farming:pepper_r", "#f83f3f")
+    else --redo, which added these from undo but didn't copy the undo names exactly
+        reg_capsicum("y", "Yellouw", "farming:pepper_yellow", "#ffdc17")
+        reg_capsicum("r", "Red", "farming:pepper_red", "#f83f3f")
+    end
 end
 
 -- Undo only
